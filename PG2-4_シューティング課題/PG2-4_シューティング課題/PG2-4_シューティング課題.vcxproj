@@ -144,7 +144,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ソース.cpp" />
+    <ClCompile Include="shooter.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="shooter.h" />
+    <ClInclude Include="AbstractScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

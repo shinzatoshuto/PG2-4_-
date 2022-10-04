@@ -13,10 +13,27 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\main">
+      <UniqueIdentifier>{199e1987-306e-42ee-9459-84fb7b65e940}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\SceneManager">
+      <UniqueIdentifier>{6ea2a893-f3c3-4e7f-8c1f-02523a7f7567}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ソース.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="shooter.cpp">
+      <Filter>ソース ファイル\main</Filter>
     </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>ソース ファイル\SceneManager</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="shooter.h">
+      <Filter>ソース ファイル\main</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractScene.h">
+      <Filter>ソース ファイル\SceneManager</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

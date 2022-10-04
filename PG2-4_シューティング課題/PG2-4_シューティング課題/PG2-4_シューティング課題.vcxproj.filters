@@ -19,6 +19,30 @@
     <Filter Include="ソース ファイル\SceneManager">
       <UniqueIdentifier>{6ea2a893-f3c3-4e7f-8c1f-02523a7f7567}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Title">
+      <UniqueIdentifier>{0ec44838-6c5d-4182-98fe-6e748f06a4b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameOver">
+      <UniqueIdentifier>{4168e1eb-4e2e-4e2c-bb6b-74199745ca62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameClear">
+      <UniqueIdentifier>{9e1a4478-8876-4f04-9bfc-a66a4d6c15af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\help">
+      <UniqueIdentifier>{e7f34ffa-28b5-4031-9853-26882a03d97a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Player">
+      <UniqueIdentifier>{7a09fd00-70a2-4a97-8a60-0c8b1bd6c52d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Enemy">
+      <UniqueIdentifier>{f3a117ef-c724-4d32-844d-2278b007e006}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Bullet">
+      <UniqueIdentifier>{3b076710-b261-4798-8460-d32915690f8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Item">
+      <UniqueIdentifier>{96f217f5-e489-43c6-9fc6-0321142b2b88}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="shooter.cpp">
@@ -27,6 +51,9 @@
     <ClCompile Include="SceneManager.cpp">
       <Filter>ソース ファイル\SceneManager</Filter>
     </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>ソース ファイル\Title</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shooter.h">
@@ -34,6 +61,9 @@
     </ClInclude>
     <ClInclude Include="AbstractScene.h">
       <Filter>ソース ファイル\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>ソース ファイル\Title</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

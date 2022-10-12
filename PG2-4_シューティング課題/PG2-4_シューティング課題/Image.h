@@ -2,5 +2,8 @@
 
 class Image {
 public:
-	int LoadImage();
+	int TitleImage;
+
+public:
+	int DrawImage();
 };

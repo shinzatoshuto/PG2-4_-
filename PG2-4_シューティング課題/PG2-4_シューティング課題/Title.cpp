@@ -1,13 +1,16 @@
 #include "DxLib.h"
 #include "Title.h"
 #include "shooter.h"
+#include "Image.h"
 
 extern Shooter shooter;
+extern Image image;
 
 AbstractScene* Title::Update() {
-	if (KeyFlg & PAD_INPUT_DOWN & KEY_INPUT_DOWN) {
+	if (shooter.KeyFlg & PAD_INPUT_DOWN & KEY_INPUT_S) {
 		if (++MenuNumber > 2) MenuNumber = 0;
-	}if (KeyFlg & PAD_INPUT_UP & KEY_INPUT_UP) {
+	}
+	if (shooter.KeyFlg & PAD_INPUT_UP) {
 		if (--MenuNumber < 0)MenuNumber = 2;
 	}
 
@@ -18,12 +21,13 @@ AbstractScene* Title::Update() {
 	//}if (shooter.GameState == 3) {
 
 	//}
+	return this;
 }
 
 void Title::Draw() {
-	DrawGraph(0, 0, TitleImage, FALSE);
+	DrawGraph(0, 0, image.TitleImage, FALSE);
 
 	//メニューカーソル（三角形）の表示
-	int g_MenuY = MenuNumber * 52;
-	DrawTriangle(240, 255 + g_MenuY, 260, 270 + g_MenuY, 240, 285 + g_MenuY, GetColor(255, 0, 0), TRUE);
+	int MenuY = MenuNumber * 97;
+	DrawTriangle(840, 400 + MenuY, 900, 415 + MenuY, 840, 430 + MenuY, GetColor(255, 0, 0), TRUE);
 }

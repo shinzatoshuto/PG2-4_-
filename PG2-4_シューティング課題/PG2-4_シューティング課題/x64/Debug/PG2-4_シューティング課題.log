@@ -1,5 +1,2 @@
-﻿  Image.cpp
-  shooter.cpp
-  Title.cpp
-  コードを生成中...
-C:\Users\sinzato shuto\Desktop\PG2-4_-\PG2-4_シューティング課題\PG2-4_シューティング課題\Title.cpp(21): error C4716: 'Title::Update': 値を返さなければいけません
+﻿  Title.cpp
+  PG2-4_シューティング課題.vcxproj -> C:\Users\sinzato shuto\Desktop\PG2-4_-\PG2-4_シューティング課題\x64\Debug\PG2-4_シューティング課題.exe

@@ -1,5 +1,6 @@
 #pragma once
 
-class BlackJack {
-
+class Shooter {
+public:
+	int GameState = 0;
 };

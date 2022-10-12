@@ -43,6 +43,9 @@
     <Filter Include="ソース ファイル\Item">
       <UniqueIdentifier>{96f217f5-e489-43c6-9fc6-0321142b2b88}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Image">
+      <UniqueIdentifier>{c751538d-9977-4fb3-8f19-504048ea0965}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="shooter.cpp">
@@ -54,6 +57,9 @@
     <ClCompile Include="Title.cpp">
       <Filter>ソース ファイル\Title</Filter>
     </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>ソース ファイル\Image</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shooter.h">
@@ -64,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="Title.h">
       <Filter>ソース ファイル\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>ソース ファイル\Image</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

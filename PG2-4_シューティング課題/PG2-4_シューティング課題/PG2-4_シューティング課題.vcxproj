@@ -144,11 +144,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Image.cpp" />
     <ClCompile Include="shooter.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Title.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Image.h" />
     <ClInclude Include="shooter.h" />
     <ClInclude Include="AbstractScene.h" />
     <ClInclude Include="Title.h" />

@@ -3,7 +3,10 @@
 
 class Title :public AbstractScene {
 public:
-	virtual ~Title() {};
+	Title* ti;
+	virtual ~Title() {
+		delete ti;
+	};
 	virtual AbstractScene* Update() override;
 	virtual void Draw() override;
 

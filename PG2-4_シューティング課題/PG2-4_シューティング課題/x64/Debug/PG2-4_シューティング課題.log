@@ -1,2 +1,5 @@
-﻿  Title.cpp
+﻿  Player.cpp
+C:\Users\sinzato shuto\Desktop\PG2-4_-\PG2-4_シューティング課題\PG2-4_シューティング課題\Player.cpp(35,56): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\sinzato shuto\Desktop\PG2-4_-\PG2-4_シューティング課題\PG2-4_シューティング課題\Player.cpp(35,43): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\sinzato shuto\Desktop\PG2-4_-\PG2-4_シューティング課題\PG2-4_シューティング課題\Player.cpp(35,26): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
   PG2-4_シューティング課題.vcxproj -> C:\Users\sinzato shuto\Desktop\PG2-4_-\PG2-4_シューティング課題\x64\Debug\PG2-4_シューティング課題.exe

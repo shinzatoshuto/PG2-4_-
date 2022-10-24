@@ -144,15 +144,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletBase.cpp" />
+    <ClCompile Include="CharaBase.cpp" />
+    <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="Image.cpp" />
+    <ClCompile Include="Key.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="shooter.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SphereCollider.cpp" />
     <ClCompile Include="Title.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletBase.h" />
+    <ClInclude Include="CharaBase.h" />
+    <ClInclude Include="GameMain.h" />
     <ClInclude Include="Image.h" />
+    <ClInclude Include="Key.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="shooter.h" />
     <ClInclude Include="AbstractScene.h" />
+    <ClInclude Include="SphereCollider.h" />
     <ClInclude Include="Title.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

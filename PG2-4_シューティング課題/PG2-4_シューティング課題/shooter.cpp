@@ -3,16 +3,15 @@
 #include "Title.h"
 #include "AbstractScene.h"
 #include "Image.h"
+#include "GameMain.h"
+#include "Key.h"
 #define WIDTH 1280
 #define HEIGHT 720
 
 Title title;
 Shooter shooter;
 Image image;
-
-// int KeyFlg = 0;
-int NowKey = 0;
-int OldKey = 0;
+Key key;
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR IpCmdLine, int nCmdShow)
 {
@@ -25,12 +24,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR IpCmdLine
 
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	SceneManager sceneManager(new Title());
+	SceneManager sceneManager(new GameMain());
 
-	while(ProcessMessage() == 0 && sceneManager.Update() != nullptr && !(shooter.KeyFlg & PAD_INPUT_9)){
-		OldKey = NowKey;
-		NowKey = GetJoypadInputState(DX_INPUT_KEY_PAD1);
-		shooter.KeyFlg = NowKey & ~OldKey;
+	while(ProcessMessage() == 0 && sceneManager.Update() != nullptr/* && !(key.PadOnClick(PAD_INPUT_9)) */&& !(key.KeyOnClick(KEY_INPUT_ESCAPE))){
 
 		ClearDrawScreen();
 

@@ -2,25 +2,35 @@
 #include "Title.h"
 #include "shooter.h"
 #include "Image.h"
+#include "Key.h"
 
 extern Shooter shooter;
+extern Key key;
 extern Image image;
 
 AbstractScene* Title::Update() {
-	if (shooter.KeyFlg & PAD_INPUT_DOWN & KEY_INPUT_S) {
+	if (key.Pad_KeyFlg & PAD_INPUT_DOWN & KEY_INPUT_S) {
 		if (++MenuNumber > 2) MenuNumber = 0;
 	}
-	if (shooter.KeyFlg & PAD_INPUT_UP) {
+	if (key.Pad_KeyFlg & PAD_INPUT_UP) {
 		if (--MenuNumber < 0)MenuNumber = 2;
 	}
 
-	//if (shooter.GameState == 1) {
+	// Ｚキーでメニュー選択
+	if (key.Pad_KeyFlg & PAD_INPUT_A) {
+		shooter.GameState = MenuNumber + 1;
+		/*gmain.g_Score = 0;
+		gmain.g_Initflg = 0;
+		gmain.g_Stage = 0;*/
+	}
 
-	//}if (shooter.GameState == 2) {
+	if (shooter.GameState == 1) {
 
-	//}if (shooter.GameState == 3) {
+	}if (shooter.GameState == 2) {
 
-	//}
+	}if (shooter.GameState == 3) {
+
+	}
 	return this;
 }
 

@@ -13,29 +13,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="ソース ファイル\main">
-      <UniqueIdentifier>{199e1987-306e-42ee-9459-84fb7b65e940}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\SceneManager">
       <UniqueIdentifier>{6ea2a893-f3c3-4e7f-8c1f-02523a7f7567}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Title">
-      <UniqueIdentifier>{0ec44838-6c5d-4182-98fe-6e748f06a4b0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\GameClear">
-      <UniqueIdentifier>{9e1a4478-8876-4f04-9bfc-a66a4d6c15af}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\help">
-      <UniqueIdentifier>{e7f34ffa-28b5-4031-9853-26882a03d97a}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Player">
       <UniqueIdentifier>{7a09fd00-70a2-4a97-8a60-0c8b1bd6c52d}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Enemy">
       <UniqueIdentifier>{f3a117ef-c724-4d32-844d-2278b007e006}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Bullet">
-      <UniqueIdentifier>{3b076710-b261-4798-8460-d32915690f8b}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Item">
       <UniqueIdentifier>{96f217f5-e489-43c6-9fc6-0321142b2b88}</UniqueIdentifier>
@@ -46,25 +31,34 @@
     <Filter Include="ソース ファイル\Base">
       <UniqueIdentifier>{410a79df-052c-4a34-952a-45128a8d7ee2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Sphere">
-      <UniqueIdentifier>{97e0d0c0-5fb6-401c-8db3-aec4d18e4d7c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Key">
       <UniqueIdentifier>{63358f90-f6fa-4e01-8d3e-86784c53c3b9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GameOver">
-      <UniqueIdentifier>{4168e1eb-4e2e-4e2c-bb6b-74199745ca62}</UniqueIdentifier>
+    <Filter Include="ヘッダー ファイル\Enemy">
+      <UniqueIdentifier>{ca943725-1ba3-4399-8097-3b3912373538}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Player">
+      <UniqueIdentifier>{c5c82047-8526-41a5-989c-26b92675d848}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Main">
+      <UniqueIdentifier>{aaa3668a-f646-4d9c-bd70-22c3c6496582}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Main">
+      <UniqueIdentifier>{199e1987-306e-42ee-9459-84fb7b65e940}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Item">
+      <UniqueIdentifier>{952a1111-445e-4067-a75c-1facd541a4d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Base">
+      <UniqueIdentifier>{e20dd941-273d-41a1-a690-638c61ddd0d6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="shooter.cpp">
-      <Filter>ソース ファイル\main</Filter>
+      <Filter>ソース ファイル\Main</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
       <Filter>ソース ファイル\SceneManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Title.cpp">
-      <Filter>ソース ファイル\Title</Filter>
     </ClCompile>
     <ClCompile Include="Image.cpp">
       <Filter>ソース ファイル\Image</Filter>
@@ -75,11 +69,8 @@
     <ClCompile Include="CharaBase.cpp">
       <Filter>ソース ファイル\Base</Filter>
     </ClCompile>
-    <ClCompile Include="SphereCollider.cpp">
-      <Filter>ソース ファイル\Sphere</Filter>
-    </ClCompile>
     <ClCompile Include="GameMain.cpp">
-      <Filter>ソース ファイル\main</Filter>
+      <Filter>ソース ファイル\Main</Filter>
     </ClCompile>
     <ClCompile Include="Key.cpp">
       <Filter>ソース ファイル\Key</Filter>
@@ -87,43 +78,81 @@
     <ClCompile Include="BulletBase.cpp">
       <Filter>ソース ファイル\Base</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemBase.cpp">
+      <Filter>ソース ファイル\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBullet.cpp">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClCompile>
     <ClCompile Include="Bullet.cpp">
-      <Filter>ソース ファイル\Bullet</Filter>
+      <Filter>ソース ファイル\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>ソース ファイル\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="HpPotion.cpp">
+      <Filter>ソース ファイル\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereCollider.cpp">
+      <Filter>ソース ファイル\Base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="shooter.h">
-      <Filter>ソース ファイル\main</Filter>
-    </ClInclude>
     <ClInclude Include="AbstractScene.h">
       <Filter>ソース ファイル\SceneManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Title.h">
-      <Filter>ソース ファイル\Title</Filter>
     </ClInclude>
     <ClInclude Include="Image.h">
       <Filter>ソース ファイル\Image</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>ソース ファイル\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="CharaBase.h">
-      <Filter>ソース ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="SphereCollider.h">
-      <Filter>ソース ファイル\Sphere</Filter>
-    </ClInclude>
-    <ClInclude Include="GameMain.h">
-      <Filter>ソース ファイル\main</Filter>
-    </ClInclude>
     <ClInclude Include="Key.h">
       <Filter>ソース ファイル\Key</Filter>
     </ClInclude>
-    <ClInclude Include="BulletBase.h">
-      <Filter>ソース ファイル\Base</Filter>
+    <ClInclude Include="resource.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>ヘッダー ファイル\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBullet.h">
+      <Filter>ヘッダー ファイル\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
-      <Filter>ソース ファイル\Bullet</Filter>
+      <Filter>ヘッダー ファイル\Player</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>ヘッダー ファイル\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>ヘッダー ファイル\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="shooter.h">
+      <Filter>ヘッダー ファイル\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain.h">
+      <Filter>ヘッダー ファイル\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="HpPotion.h">
+      <Filter>ヘッダー ファイル\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemBase.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="CharaBase.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletBase.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereCollider.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PG2-4_シューティング課題.rc">
+      <Filter>リソース ファイル</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

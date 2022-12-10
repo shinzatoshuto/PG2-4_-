@@ -7,6 +7,9 @@ protected:
 	T_Location speed;
 
 public:
+	int num[30];
+
+public:
 	BulletBase(T_Location location, float radius, int damage, T_Location speed)
 		: SphereCollider(location,radius), damage(damage), speed(speed)
 	{
@@ -15,5 +18,6 @@ public:
 public:
 	virtual void Update() = 0;
 	virtual void Draw() = 0;
+	virtual bool isBulletDeath() = 0;
 	virtual int GetDamage();
 };

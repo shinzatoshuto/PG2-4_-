@@ -3,6 +3,8 @@
 #include "shooter.h"
 #include "Key.h"
 #include "Bullet.h"
+#include "HpPotion.h"
+#define _DEBUG_MODE_
 
 extern Key key;
 
@@ -11,6 +13,7 @@ Player::Player(T_Location location, float radius)
 {
 	score = 0;
 	life = 10;
+	BulletsCount = 0;
 
 	bullets = new BulletBase * [30];
 	for (int i = 0; i < 30; i++) {
@@ -18,33 +21,139 @@ Player::Player(T_Location location, float radius)
 	}
 }
 
+void Player::InitPlayer() {
+	T_Location location;
+	location.x = 10;
+	location.y = 100;
+	SetLocation(location);
+
+	this->life = 10;
+}
+
+void Player::ScreenOutPlayer() {
+	T_Location l;
+	l.x = GetLocation().x;
+	l.y = GetLocation().y;
+
+	if (l.x < 10) {
+		l.x = 10;
+		SetLocation(l);
+	}
+	if (l.x > 1270) {
+		l.x = 1270;
+		SetLocation(l);
+	}
+	if (l.y < 10) {
+		l.y = 10;
+		SetLocation(l);
+	}
+	if (l.y > 710) {
+		l.y = 710;
+		SetLocation(l);
+	}
+}
+
 void Player::Update() {
-	int BulletsCount;
+	key.Update();
+	KeyInput();
+
 	for (BulletsCount = 0; BulletsCount < 30; BulletsCount++) {
 		if (bullets[BulletsCount] == nullptr) {
 			break;
 		}
 		bullets[BulletsCount]->Update();
-	}
-	key.Update();
 
-	KeyInput();
+		if (bullets[BulletsCount]->isBulletDeath()) {
+			delete bullets[BulletsCount];      //現在のBulletsCountをデリート
+			bullets[BulletsCount] = nullptr;   //現在のBulletsCountにヌルポインタを挿入
+
+			//値を求める
+			for (int i = (BulletsCount + 1); i < 30; i++) { // 次の値を調べる処理
+
+				//＋１がヌルポインタだったらブレイク
+				if (bullets[i] == nullptr) {
+					break;
+				}
+
+				bullets[i - 1] = bullets[i];       //i - 1に現在の値を代入する
+				bullets[i] = nullptr;          //iにヌルポインタを代入する
+			}
+
+			bullets[BulletsCount--];   //マイナスして現在の値を求める
+		}
+	}
 }
 
 void Player::Draw() {
+#ifdef _DEBUG_MODE_
+	DrawFormatString(20, 20, 0xffffff, "Life = %d", this->life);
+	DrawFormatString(20, 35, 0xffffff, "BulletsCount = %d", this->BulletsCount);
+	DrawFormatString(20, 50, 0xffffff, "bulflg = %d", this->bulflg);
+	DrawFormatString(20, 65, 0xffffff, "x = %d", Bullet::x);
+	DrawFormatString(20, 80, 0xffffff, "y = %d", Bullet::y);
+
+#endif
+
 	DrawCircle(GetLocation().x, GetLocation().y, GetRadius(), GetColor(0, 0, 255));
 
-	int BulletsCount;
-	for (BulletsCount = 0; BulletsCount < 30; BulletsCount++) {
-		if (bullets[BulletsCount] == nullptr) {
+	int i;
+	for (i = 0; i < 30; i++) {
+		if (bullets[i] == nullptr) {
 			break;
 		}
-		bullets[BulletsCount]->Draw();
+		bullets[i]->Draw();
 	}
-	DrawFormatString(0, 0, 0xffffff, "%d", key.Pad_NowKey);
 }
 
 void Player::Hit() {
+
+}
+
+void Player::Hit(int BulletsCount) {
+	delete bullets[BulletsCount];      //現在のBulletsCountをデリート
+	bullets[BulletsCount] = nullptr;   //現在のBulletsCountにヌルポインタを挿入
+
+	//値を求める
+	for (int i = BulletsCount; i < 30; i++) {
+
+		//＋１がヌルポインタだったらブレイク
+		if (bullets[i + 1] == nullptr) {
+			break;
+		}
+
+		bullets[i] = bullets[i + 1];       //現在の値に＋１の値を代入する
+		bullets[i + 1] = nullptr;          //i + 1にヌルポインタを代入する
+	}
+}
+
+void Player::HitPlayer(int damage) {
+	if (damage >= 0) {
+		life -= damage;
+		if (life < 0) {
+			life = 0;
+	 	}
+	}
+}
+
+void Player::HitItem(ItemBase* item) {
+	E_ITEM_TYPE type = item->GetType();
+	switch (type) {
+
+		//switch文の中で変数の値をいじるときは
+		//｛｝を使う
+		case E_ITEM_TYPE::Hp_Potion:
+		{
+			HpPotion* potion = dynamic_cast<HpPotion*>(item);
+			if (potion == nullptr) {
+				throw - 1;
+			}
+			this->life += potion->GetHealPower();
+			break;
+		}
+
+		default:
+			break;
+	}
 }
 
 bool Player::LifeCheck() {
@@ -56,36 +165,42 @@ int Player::GetScore() {
 	return score;
 }
 
+void Player::addScore(int point) {
+	if (point > 0) {
+		score += point;
+	}
+}
+
 void Player::KeyInput() {
 	T_Location l;
 	if (key.KeyPresse(KEY_INPUT_W) || key.Pad_KeyFlg & key.PadPresse(PAD_INPUT_UP)) {
 		l.x = GetLocation().x;
-		l.y = GetLocation().y - 1.0f;
+		l.y = GetLocation().y - 2.0f;
 		SetLocation(l);
+		bulflg = 1;
 	}
 	if (key.KeyPresse(KEY_INPUT_S) || key.Pad_KeyFlg & key.PadPresse(PAD_INPUT_DOWN)) {
 		l.x = GetLocation().x;
-		l.y = GetLocation().y + 1.0f;
+		l.y = GetLocation().y + 2.0f;
 		SetLocation(l);
+		bulflg = 2;
 	}
 	if (key.KeyPresse(KEY_INPUT_A) || key.Pad_KeyFlg & key.PadPresse(PAD_INPUT_LEFT)) {
-		l.x = GetLocation().x - 1.0f;
+		l.x = GetLocation().x - 2.0f;
 		l.y = GetLocation().y;
 		SetLocation(l);
+		bulflg = 3;
 	}
 	if (key.KeyPresse(KEY_INPUT_D) || key.Pad_KeyFlg & key.PadPresse(PAD_INPUT_RIGHT)) {
-		l.x = GetLocation().x + 1.0f;
+		l.x = GetLocation().x + 2.0f;
 		l.y = GetLocation().y;
 		SetLocation(l);
+		bulflg = 4;
 	}
-
 	if (key.KeyOnClick(KEY_INPUT_E) || key.Pad_KeyFlg & key.PadOnClick(PAD_INPUT_1)) {
-		int i;
-		for (i = 0; i < 30; i++) {
-			if (bullets[i] == nullptr) {
-				break;
-			}
+		if (BulletsCount < 30 && bullets[BulletsCount] == nullptr) {
+			bullets[BulletsCount] = new Bullet(GetLocation());
+			bullets[BulletsCount]->num[BulletsCount] = bulflg;
 		}
-		bullets[i] = new Bullet(GetLocation());
 	}
 }

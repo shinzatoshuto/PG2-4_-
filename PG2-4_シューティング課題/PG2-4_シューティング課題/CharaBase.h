@@ -8,10 +8,6 @@ protected:
 	BulletBase** bullets;
 	int* CharaImage = nullptr;
 
-private:
-	//int speed;
-	//int image;
-
 public:
 	virtual ~CharaBase();
 

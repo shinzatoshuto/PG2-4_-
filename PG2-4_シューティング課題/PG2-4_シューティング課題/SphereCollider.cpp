@@ -9,10 +9,10 @@ SphereCollider::SphereCollider(T_Location location, float radius) {
 }
 
 //当たり判定
-bool SphereCollider::HitSphere(SphereCollider s) {
+bool SphereCollider::HitSphere(SphereCollider* s) {
 	//円と円の当たり判定
 	//自分から相手のベクトルを求める
-	T_Location location = s.GetLocation();
+	T_Location location = s->GetLocation();
 	float x = this->location.x - location.x;
 	float y = this->location.y - location.y;
 
@@ -24,7 +24,7 @@ bool SphereCollider::HitSphere(SphereCollider s) {
 	float xy = (x * x) + (y * y);
 	double VectorSize = sqrt(xy); //平方根
 
-	float radius = this->radius + s.GetRadius();
+	float radius = this->radius + s->GetRadius();
 
 	//自分の半径 ＋ 相手の半径　より小さい時当たってる
 	bool ret = (VectorSize <= radius);

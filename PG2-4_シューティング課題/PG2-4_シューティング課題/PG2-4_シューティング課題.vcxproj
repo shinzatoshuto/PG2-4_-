@@ -147,8 +147,12 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletBase.cpp" />
     <ClCompile Include="CharaBase.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyBullet.cpp" />
     <ClCompile Include="GameMain.cpp" />
+    <ClCompile Include="HpPotion.cpp" />
     <ClCompile Include="Image.cpp" />
+    <ClCompile Include="ItemBase.cpp" />
     <ClCompile Include="Key.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="shooter.cpp" />
@@ -160,14 +164,22 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletBase.h" />
     <ClInclude Include="CharaBase.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyBullet.h" />
     <ClInclude Include="GameMain.h" />
+    <ClInclude Include="HpPotion.h" />
     <ClInclude Include="Image.h" />
+    <ClInclude Include="ItemBase.h" />
     <ClInclude Include="Key.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="shooter.h" />
     <ClInclude Include="AbstractScene.h" />
     <ClInclude Include="SphereCollider.h" />
     <ClInclude Include="Title.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PG2-4_シューティング課題.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

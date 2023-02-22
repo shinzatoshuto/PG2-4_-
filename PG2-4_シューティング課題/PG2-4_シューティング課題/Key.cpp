@@ -1,6 +1,12 @@
 #include "DxLib.h"
 #include "Key.h"
 
+int Key::Key_OldKey[256];
+int Key::Key_NowKey[256];
+int Key::Pad_OldKey;
+int Key::Pad_KeyFlg;
+int Key::Pad_NowKey;
+
 Key::Key() {
 	for (int i = 0; i < 256; i++) {
 		Key_OldKey[i] = 0;
@@ -10,7 +16,6 @@ Key::Key() {
 	Pad_OldKey = 0;
 	Pad_NowKey = 0;
 	Pad_KeyFlg = 0;
-
 }
 
 void Key::Update() {
@@ -51,18 +56,21 @@ bool Key::KeyRelese(int InputKey) {
 
 int Key::PadOnClick(int PadFlg) {
 	Pad_KeyFlg = Pad_NowKey & ~Pad_OldKey;
+	bool flg = (PadFlg & Pad_KeyFlg);
 
-	return PadFlg;
+	return flg;
 }
 
 int Key::PadPresse(int PadFlg) {
 	Pad_KeyFlg = Pad_NowKey & Pad_OldKey;
+	bool flg = (PadFlg & Pad_KeyFlg);
 
-	return PadFlg;
+	return flg;
 }
 
 int Key::PadRelese(int PadFlg) {
 	Pad_KeyFlg = ~Pad_NowKey & Pad_OldKey;
+	bool flg = (PadFlg & Pad_KeyFlg);
 
-	return PadFlg;
+	return flg;
 }

@@ -31,9 +31,6 @@
     <Filter Include="ソース ファイル\Base">
       <UniqueIdentifier>{410a79df-052c-4a34-952a-45128a8d7ee2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Key">
-      <UniqueIdentifier>{63358f90-f6fa-4e01-8d3e-86784c53c3b9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\Enemy">
       <UniqueIdentifier>{ca943725-1ba3-4399-8097-3b3912373538}</UniqueIdentifier>
     </Filter>
@@ -72,9 +69,6 @@
     <ClCompile Include="GameMain.cpp">
       <Filter>ソース ファイル\Main</Filter>
     </ClCompile>
-    <ClCompile Include="Key.cpp">
-      <Filter>ソース ファイル\Key</Filter>
-    </ClCompile>
     <ClCompile Include="BulletBase.cpp">
       <Filter>ソース ファイル\Base</Filter>
     </ClCompile>
@@ -90,14 +84,26 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>ソース ファイル\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Title.cpp">
-      <Filter>ソース ファイル\Main</Filter>
-    </ClCompile>
     <ClCompile Include="HpPotion.cpp">
       <Filter>ソース ファイル\Item</Filter>
     </ClCompile>
     <ClCompile Include="SphereCollider.cpp">
       <Filter>ソース ファイル\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleEnemyBullet.cpp">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>ソース ファイル\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="GameClear.cpp">
+      <Filter>ソース ファイル\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOver.cpp">
+      <Filter>ソース ファイル\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Key.cpp">
+      <Filter>ソース ファイル\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -106,9 +112,6 @@
     </ClInclude>
     <ClInclude Include="Image.h">
       <Filter>ソース ファイル\Image</Filter>
-    </ClInclude>
-    <ClInclude Include="Key.h">
-      <Filter>ソース ファイル\Key</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>ヘッダー ファイル</Filter>
@@ -148,6 +151,18 @@
     </ClInclude>
     <ClInclude Include="SphereCollider.h">
       <Filter>ヘッダー ファイル\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleEnemyBullet.h">
+      <Filter>ヘッダー ファイル\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClear.h">
+      <Filter>ヘッダー ファイル\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOver.h">
+      <Filter>ヘッダー ファイル\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Key.h">
+      <Filter>ヘッダー ファイル\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

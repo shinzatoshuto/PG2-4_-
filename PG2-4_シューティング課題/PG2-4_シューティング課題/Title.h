@@ -4,6 +4,7 @@
 class Title :public AbstractScene {
 public:
 	Title* ti;
+	Title();
 	virtual ~Title() {
 		delete ti;
 	};
@@ -13,5 +14,6 @@ public:
 public:
 
 private:
-	int MenuNumber = 0;
+	int MenuNumber;
+	int GameState;
 };

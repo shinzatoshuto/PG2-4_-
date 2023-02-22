@@ -3,34 +3,39 @@
 #include "shooter.h"
 #include "Image.h"
 #include "Key.h"
+#include "GameMain.h"
 
 extern Shooter shooter;
-extern Key key;
 extern Image image;
 
+Title::Title() {
+	MenuNumber = 0;
+	GameState = 0;
+}
+
 AbstractScene* Title::Update() {
-	if (key.Pad_KeyFlg & PAD_INPUT_DOWN & KEY_INPUT_S) {
+	if (Key::PadOnClick(PAD_INPUT_DOWN) || Key::KeyOnClick(KEY_INPUT_S)) {
 		if (++MenuNumber > 2) MenuNumber = 0;
 	}
-	if (key.Pad_KeyFlg & PAD_INPUT_UP) {
+	if (Key::PadOnClick(PAD_INPUT_UP) || Key::KeyOnClick(KEY_INPUT_W)) {
 		if (--MenuNumber < 0)MenuNumber = 2;
 	}
 
 	// Ｚキーでメニュー選択
-	if (key.Pad_KeyFlg & PAD_INPUT_A) {
-		shooter.GameState = MenuNumber + 1;
+	if (Key::PadOnClick(PAD_INPUT_A) || Key::KeyOnClick(KEY_INPUT_E)) {
+		GameState = MenuNumber + 1;
 		/*gmain.g_Score = 0;
 		gmain.g_Initflg = 0;
 		gmain.g_Stage = 0;*/
 	}
 
-	if (shooter.GameState == 1) {
+	if (GameState == 1) {
+		return new GameMain;
+	}if (GameState == 2) {
 
-	}if (shooter.GameState == 2) {
+	}if (GameState == 3) {
 
-	}if (shooter.GameState == 3) {
-
-	}
+	} 
 	return this;
 }
 

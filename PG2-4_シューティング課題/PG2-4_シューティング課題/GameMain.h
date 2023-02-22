@@ -9,7 +9,7 @@ class GameMain: public AbstractScene {
 	Enemy** enemy;
 	ItemBase** items;
 
-	int EnemyCount = 0;
+	float count;
 
 public:
 	GameMain()
@@ -19,13 +19,15 @@ public:
 		location.y = 100;
 
 		float radius = 10.f;
+		count = .0f;
 
 		player = new Player(location, radius);
-		enemy = new Enemy* [10];
-		for (int i = 0; i < 10; i++) {
+		enemy = new Enemy* [EnemyMAX];
+		for (int i = 0; i < EnemyMAX; i++) {
 			enemy[i] = nullptr;
+			enemy[i] = new Enemy(T_Location{ 1280 / 2 + count,720 / 2 + count}, 20);
+			count += 50.f;
 		}
-		enemy[0] = new Enemy(T_Location{ 300,0 }, 20);
 
 		items = new ItemBase * [10];
 		for (int i = 0; i < 10; i++) {

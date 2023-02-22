@@ -11,7 +11,6 @@
 Title title;
 Shooter shooter;
 Image image;
-Key key;
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR IpCmdLine, int nCmdShow)
 {
@@ -24,10 +23,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR IpCmdLine
 
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	SceneManager sceneManager(new GameMain());
+	SceneManager sceneManager(new Title());
 
-	while(ProcessMessage() == 0 && sceneManager.Update() != nullptr/* && !(key.PadOnClick(PAD_INPUT_9)) */&& !(key.KeyOnClick(KEY_INPUT_ESCAPE))){
-
+	while(ProcessMessage() == 0 && sceneManager.Update() != nullptr/* && !(Key::PadOnClick(PAD_INPUT_9)) */&& !(Key::KeyOnClick(KEY_INPUT_ESCAPE))){
+		Key::Update();
 		ClearDrawScreen();
 
 		sceneManager.Draw();

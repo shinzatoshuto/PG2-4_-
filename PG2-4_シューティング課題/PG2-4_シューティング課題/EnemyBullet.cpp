@@ -2,18 +2,13 @@
 #include "DxLib.h"
 
 EnemyBullet::EnemyBullet(T_Location location)
-	:BulletBase(location, 5.0f, 1, T_Location{ 0,2 }) {
+	:BulletBase(location, 5.0f, 1, T_Location{ 2,2 }) {
 	image = 0;
 };
 
 void EnemyBullet::Update() {
 	T_Location Location = GetLocation();
-	if (Enemy::turn == 0) {
-		Location.y += speed.y;
-	}
-	if (Enemy::turn == 1) {
-		Location.y -= speed.y;
-	}
+	Location.y += speed.y;
 	SetLocation(Location);
 }
 

@@ -1,6 +1,16 @@
 #pragma once
 #include "CharaBase.h"
 #include "SphereCollider.h"
+#define Bullets 200
+#define EnemyMAX 1
+
+struct T_MoveInformation {
+	int pattern;   //行動パターン
+	T_Location destination;  //目的地
+	int nextArrayNum;   //次の配列番号
+	int waitFrameTime;  //待ち時間
+	int attackType;     //攻撃の種類
+};
 
 class Enemy:public CharaBase,public SphereCollider
 {
@@ -11,11 +21,17 @@ private:
 	int interval;
 	float Move;
 	short angle;
+	int shotNum;
 
-	float PlayerX, PlayerY;
+	float dx;
+	float dy;
+	float Angle;
+
+	T_MoveInformation moveInfo[5] = {};
+	int current = 0;
+	int waitTime = 0;
 
 public:
-	static int turn;
 
 public:
 	Enemy(T_Location location, float rudius);
@@ -28,5 +44,7 @@ public:
 	void Hit(int damage);
 	bool HpCheck();
 	int GetPoint();
-	int GetPlayerLocation(float y,float x);
+	void EnemyMove(float PlayerY, float PlayerX);
+	void EMove();
+	void inputCSV();
 };

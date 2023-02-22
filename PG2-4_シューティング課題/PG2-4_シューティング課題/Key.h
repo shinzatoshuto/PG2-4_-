@@ -1,21 +1,21 @@
 #pragma once
 
 class Key {
-	int Key_OldKey[256];
-	int Key_NowKey[256];
-	int Pad_OldKey;
+	static int Key_OldKey[256];
+	static int Key_NowKey[256];
+	static int Pad_OldKey;
 
 public:
-	int Pad_KeyFlg;
-	int Pad_NowKey;
+	static int Pad_KeyFlg;
+	static int Pad_NowKey;
 
 public:
 	Key();
-	void Update();
-	bool KeyOnClick(int InputKey);
-	bool KeyPresse(int InputKey);
-	bool KeyRelese(int InputKey);
-	int PadOnClick(int PadFlg);
-	int PadPresse(int PadFlg);
-	int PadRelese(int PadFlg);
+	static void Update();
+	static bool KeyOnClick(int InputKey);
+	static bool KeyPresse(int InputKey);
+	static bool KeyRelese(int InputKey);
+	static int PadOnClick(int PadFlg);
+	static int PadPresse(int PadFlg);
+	static int PadRelese(int PadFlg);
 };

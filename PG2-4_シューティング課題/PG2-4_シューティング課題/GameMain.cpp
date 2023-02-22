@@ -1,6 +1,8 @@
 #include "DxLib.h"
 #include "GameMain.h"
 #include "HpPotion.h"
+#include "GameClear.h"
+#include "GameOver.h"
 
 //bool GameMain::HitCheck() {
 //
@@ -9,12 +11,12 @@
 AbstractScene* GameMain::Update() {
 	player->Update();
 
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < EnemyMAX; i++) {
 		if (enemy[i] == nullptr) {
 			break;
 		}
+		//enemy[i]->EnemyMove(player->GetLocation().y, player->GetLocation().x);
 		enemy[i]->Update();
-		enemy[i]->GetPlayerLocation(player->GetLocation().y, player->GetLocation().x);
 	}
 
 	for (int i = 0; i < 10; i++) {
@@ -24,14 +26,13 @@ AbstractScene* GameMain::Update() {
 		items[i]->Update();
 	}
 
-
-
-	BulletBase** bullets = player->GetBullets();
-	for (int bulletscount = 0; bulletscount < 30; bulletscount++ ) {
+	//プレイヤーの弾の当たり判定
+	for (int bulletscount = 0; bulletscount < _MAX_BULLETE_; bulletscount++ ) {
+		BulletBase** bullets = player->GetBullets();
 		if (bullets[bulletscount] == nullptr) {
 			break;
 		}
-		for (EnemyCount = 0; EnemyCount < 10; EnemyCount++) {
+		for (int EnemyCount = 0; EnemyCount < EnemyMAX; EnemyCount++) {
 			if (enemy[EnemyCount] == nullptr) {
 				break;
 			}
@@ -63,7 +64,7 @@ AbstractScene* GameMain::Update() {
 
 					delete enemy[EnemyCount];
 					enemy[EnemyCount] = nullptr;
-					for (int i = (EnemyCount + 1); i < 10; i++) { // 次の値を調べる処理
+					for (int i = (EnemyCount + 1); i < EnemyMAX; i++) { // 次の値を調べる処理
 
 						//iがヌルポインタだったらブレイク
 						if (enemy[i] == nullptr) {
@@ -74,6 +75,8 @@ AbstractScene* GameMain::Update() {
 						enemy[i] = nullptr;          //iにヌルポインタを代入する
 					}
 				}
+
+				break;
 			}
 		}
 	}
@@ -91,6 +94,9 @@ AbstractScene* GameMain::Update() {
 
 			delete items[ItemCount];
 			items[ItemCount] = nullptr;
+
+			return new GameClear;
+
 			for (int i = ItemCount + 1; i < 10; i++) {
 				if (items[ItemCount] == nullptr) {
 					break;
@@ -102,12 +108,13 @@ AbstractScene* GameMain::Update() {
 		}
 	}
 
-	for (EnemyCount = 0; EnemyCount < 10; EnemyCount++) {
+	//エネミーの弾の当たり判定
+	for (int EnemyCount = 0; EnemyCount < EnemyMAX; EnemyCount++) {
+		BulletBase** enemybullets = enemy[EnemyCount]->GetBullets();
 		if (enemy[EnemyCount] == nullptr) {
 			break;
 		}
-		BulletBase** enemybullets = enemy[EnemyCount]->GetBullets();
-		for (int enemybulletscount = 0; enemybulletscount < 30; enemybulletscount++) {
+		for (int enemybulletscount = 0; enemybulletscount < Bullets; enemybulletscount++) {
 			if (enemybullets[enemybulletscount] == nullptr) {
 				break;
 			}
@@ -123,9 +130,12 @@ AbstractScene* GameMain::Update() {
 
 				//プレイヤ―のhpがゼロ以下であれば、プレイヤーを消す
 				if (player->LifeCheck()) {
-					player->InitPlayer();
+					//player->InitPlayer();
+					return new GameOver;
 				}
 			}
+
+			//break;
 		}
 	}
 
@@ -136,7 +146,7 @@ AbstractScene* GameMain::Update() {
 
 void GameMain::Draw() {
 	player->Draw();
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < EnemyMAX; i++) {
 		if (enemy[i] == nullptr) {
 			break;
 		}

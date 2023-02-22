@@ -2,6 +2,5 @@
 
 class Shooter {
 public:
-	int GameState = 0;
 
 };

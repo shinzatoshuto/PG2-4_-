@@ -147,9 +147,12 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletBase.cpp" />
     <ClCompile Include="CharaBase.cpp" />
+    <ClCompile Include="CircleEnemyBullet.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyBullet.cpp" />
+    <ClCompile Include="GameClear.cpp" />
     <ClCompile Include="GameMain.cpp" />
+    <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="HpPotion.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ItemBase.cpp" />
@@ -164,9 +167,12 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletBase.h" />
     <ClInclude Include="CharaBase.h" />
+    <ClInclude Include="CircleEnemyBullet.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyBullet.h" />
+    <ClInclude Include="GameClear.h" />
     <ClInclude Include="GameMain.h" />
+    <ClInclude Include="GameOver.h" />
     <ClInclude Include="HpPotion.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="ItemBase.h" />

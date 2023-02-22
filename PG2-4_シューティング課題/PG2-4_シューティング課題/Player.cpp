@@ -6,17 +6,16 @@
 #include "HpPotion.h"
 #define _DEBUG_MODE_
 
-extern Key key;
-
 Player::Player(T_Location location, float radius)
 	:SphereCollider(location, radius)
 {
 	score = 0;
 	life = 10;
+	bulflg = 1;
 	BulletsCount = 0;
 
-	bullets = new BulletBase * [30];
-	for (int i = 0; i < 30; i++) {
+	bullets = new BulletBase * [_MAX_BULLETE_];
+	for (int i = 0; i < _MAX_BULLETE_; i++) {
 		bullets[i] = nullptr;
 	}
 }
@@ -54,10 +53,9 @@ void Player::ScreenOutPlayer() {
 }
 
 void Player::Update() {
-	key.Update();
 	KeyInput();
 
-	for (BulletsCount = 0; BulletsCount < 30; BulletsCount++) {
+	for (BulletsCount = 0; BulletsCount < _MAX_BULLETE_; BulletsCount++) {
 		if (bullets[BulletsCount] == nullptr) {
 			break;
 		}
@@ -68,7 +66,7 @@ void Player::Update() {
 			bullets[BulletsCount] = nullptr;   //現在のBulletsCountにヌルポインタを挿入
 
 			//値を求める
-			for (int i = (BulletsCount + 1); i < 30; i++) { // 次の値を調べる処理
+			for (int i = (BulletsCount + 1); i < _MAX_BULLETE_; i++) { // 次の値を調べる処理
 
 				//＋１がヌルポインタだったらブレイク
 				if (bullets[i] == nullptr) {
@@ -97,7 +95,7 @@ void Player::Draw() {
 	DrawCircle(GetLocation().x, GetLocation().y, GetRadius(), GetColor(0, 0, 255));
 
 	int i;
-	for (i = 0; i < 30; i++) {
+	for (i = 0; i < _MAX_BULLETE_; i++) {
 		if (bullets[i] == nullptr) {
 			break;
 		}
@@ -114,7 +112,7 @@ void Player::Hit(int BulletsCount) {
 	bullets[BulletsCount] = nullptr;   //現在のBulletsCountにヌルポインタを挿入
 
 	//値を求める
-	for (int i = BulletsCount; i < 30; i++) {
+	for (int i = BulletsCount; i < _MAX_BULLETE_; i++) {
 
 		//＋１がヌルポインタだったらブレイク
 		if (bullets[i + 1] == nullptr) {
@@ -173,32 +171,32 @@ void Player::addScore(int point) {
 
 void Player::KeyInput() {
 	T_Location l;
-	if (key.KeyPresse(KEY_INPUT_W) || key.Pad_KeyFlg & key.PadPresse(PAD_INPUT_UP)) {
+	if (Key::KeyPresse(KEY_INPUT_W) || Key::PadPresse(PAD_INPUT_UP)) {
 		l.x = GetLocation().x;
 		l.y = GetLocation().y - 2.0f;
 		SetLocation(l);
 		bulflg = 1;
 	}
-	if (key.KeyPresse(KEY_INPUT_S) || key.Pad_KeyFlg & key.PadPresse(PAD_INPUT_DOWN)) {
+	if (Key::KeyPresse(KEY_INPUT_S) || Key::PadPresse(PAD_INPUT_DOWN)) {
 		l.x = GetLocation().x;
 		l.y = GetLocation().y + 2.0f;
 		SetLocation(l);
 		bulflg = 2;
 	}
-	if (key.KeyPresse(KEY_INPUT_A) || key.Pad_KeyFlg & key.PadPresse(PAD_INPUT_LEFT)) {
+	if (Key::KeyPresse(KEY_INPUT_A) || Key::PadPresse(PAD_INPUT_LEFT)) {
 		l.x = GetLocation().x - 2.0f;
 		l.y = GetLocation().y;
 		SetLocation(l);
 		bulflg = 3;
 	}
-	if (key.KeyPresse(KEY_INPUT_D) || key.Pad_KeyFlg & key.PadPresse(PAD_INPUT_RIGHT)) {
+	if (Key::KeyPresse(KEY_INPUT_D) || Key::PadPresse(PAD_INPUT_RIGHT)) {
 		l.x = GetLocation().x + 2.0f;
 		l.y = GetLocation().y;
 		SetLocation(l);
 		bulflg = 4;
 	}
-	if (key.KeyOnClick(KEY_INPUT_E) || key.Pad_KeyFlg & key.PadOnClick(PAD_INPUT_1)) {
-		if (BulletsCount < 30 && bullets[BulletsCount] == nullptr) {
+	if (Key::KeyOnClick(KEY_INPUT_E) || Key::PadOnClick(PAD_INPUT_1)) {
+		if (BulletsCount < _MAX_BULLETE_ && bullets[BulletsCount] == nullptr) {
 			bullets[BulletsCount] = new Bullet(GetLocation());
 			bullets[BulletsCount]->num[BulletsCount] = bulflg;
 		}

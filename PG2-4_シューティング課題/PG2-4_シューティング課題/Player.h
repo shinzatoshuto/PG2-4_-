@@ -2,6 +2,8 @@
 #include "CharaBase.h"
 #include "ItemBase.h"
 
+#define _MAX_BULLETE_  30
+
 class Player :public CharaBase,public SphereCollider{
 	int score;
 	int life;

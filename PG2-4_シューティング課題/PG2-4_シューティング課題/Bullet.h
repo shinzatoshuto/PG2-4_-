@@ -1,6 +1,7 @@
 #pragma once
 #include "Enemy.h"
 #include "BulletBase.h"
+#include "Player.h"
 
 class Bullet :public BulletBase {
 	int image;
@@ -8,7 +9,7 @@ class Bullet :public BulletBase {
 
 public:
 	static int x, y;
-	static int bull[30];
+	static int bull[_MAX_BULLETE_];
 
 public:
 	Bullet(T_Location location);

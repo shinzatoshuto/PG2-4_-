@@ -7,7 +7,6 @@ protected:
 	T_Location speed;
 
 public:
-	int num[30];
 
 public:
 	BulletBase(T_Location location, float radius, int damage, T_Location speed)

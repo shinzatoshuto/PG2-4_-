@@ -110,10 +110,10 @@ AbstractScene* GameMain::Update() {
 
 	//エネミーの弾の当たり判定
 	for (int EnemyCount = 0; EnemyCount < EnemyMAX; EnemyCount++) {
-		BulletBase** enemybullets = enemy[EnemyCount]->GetBullets();
 		if (enemy[EnemyCount] == nullptr) {
 			break;
 		}
+		BulletBase** enemybullets = enemy[EnemyCount]->GetBullets();
 		for (int enemybulletscount = 0; enemybulletscount < Bullets; enemybulletscount++) {
 			if (enemybullets[enemybulletscount] == nullptr) {
 				break;
@@ -133,9 +133,8 @@ AbstractScene* GameMain::Update() {
 					//player->InitPlayer();
 					return new GameOver;
 				}
+				break;
 			}
-
-			//break;
 		}
 	}
 

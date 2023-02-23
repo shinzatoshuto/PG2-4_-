@@ -198,7 +198,7 @@ void Player::KeyInput() {
 	if (Key::KeyOnClick(KEY_INPUT_E) || Key::PadOnClick(PAD_INPUT_1)) {
 		if (BulletsCount < _MAX_BULLETE_ && bullets[BulletsCount] == nullptr) {
 			bullets[BulletsCount] = new Bullet(GetLocation());
-			bullets[BulletsCount]->num[BulletsCount] = bulflg;
+			Bullet::bull[BulletsCount] = bulflg;
 		}
 	}
 }

@@ -93,6 +93,7 @@ void Player::Draw() {
 #endif
 
 	DrawCircle(GetLocation().x, GetLocation().y, GetRadius(), GetColor(0, 0, 255));
+	DrawRotaGraph(GetLocation().x, GetLocation().y, 0.2, 0, Image::PlayerImg, TRUE);
 
 	int i;
 	for (i = 0; i < _MAX_BULLETE_; i++) {
@@ -175,30 +176,25 @@ void Player::KeyInput() {
 		l.x = GetLocation().x;
 		l.y = GetLocation().y - 2.0f;
 		SetLocation(l);
-		bulflg = 1;
 	}
 	if (Key::KeyPresse(KEY_INPUT_S) || Key::PadPresse(PAD_INPUT_DOWN)) {
 		l.x = GetLocation().x;
 		l.y = GetLocation().y + 2.0f;
 		SetLocation(l);
-		bulflg = 2;
 	}
 	if (Key::KeyPresse(KEY_INPUT_A) || Key::PadPresse(PAD_INPUT_LEFT)) {
 		l.x = GetLocation().x - 2.0f;
 		l.y = GetLocation().y;
 		SetLocation(l);
-		bulflg = 3;
 	}
 	if (Key::KeyPresse(KEY_INPUT_D) || Key::PadPresse(PAD_INPUT_RIGHT)) {
 		l.x = GetLocation().x + 2.0f;
 		l.y = GetLocation().y;
 		SetLocation(l);
-		bulflg = 4;
 	}
 	if (Key::KeyOnClick(KEY_INPUT_E) || Key::PadOnClick(PAD_INPUT_1)) {
 		if (BulletsCount < _MAX_BULLETE_ && bullets[BulletsCount] == nullptr) {
 			bullets[BulletsCount] = new Bullet(GetLocation());
-			Bullet::bull[BulletsCount] = bulflg;
 		}
 	}
 }

@@ -2,7 +2,7 @@
 #include "CharaBase.h"
 #include "SphereCollider.h"
 #define Bullets 200
-#define EnemyMAX 1
+#define EnemyMAX 2
 
 struct T_MoveInformation {
 	int pattern;   //行動パターン
@@ -32,6 +32,7 @@ private:
 	int waitTime = 0;
 
 public:
+	static int AcType;
 
 public:
 	Enemy(T_Location location, float rudius);

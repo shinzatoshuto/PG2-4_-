@@ -6,7 +6,6 @@
 #include "GameMain.h"
 
 extern Shooter shooter;
-extern Image image;
 
 Title::Title() {
 	MenuNumber = 0;
@@ -40,7 +39,7 @@ AbstractScene* Title::Update() {
 }
 
 void Title::Draw() {
-	DrawGraph(0, 0, image.TitleImage, FALSE);
+	DrawGraph(0, 0, Image::TitleImage, FALSE);
 
 	//メニューカーソル（三角形）の表示
 	int MenuY = MenuNumber * 97;

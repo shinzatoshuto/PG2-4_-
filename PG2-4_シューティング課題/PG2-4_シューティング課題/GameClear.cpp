@@ -1,5 +1,7 @@
 #include "GameClear.h"
 #include "Title.h"
+#include "Stage.h"
+#include "GameMain.h"
 
 extern Key key;
 
@@ -11,7 +13,8 @@ GameClear::GameClear()
 AbstractScene* GameClear::Update()
 {
 	if (key.KeyOnClick(KEY_INPUT_SPACE) || key.Pad_KeyFlg & key.PadOnClick(PAD_INPUT_A)) {
-		return new Title;
+		Stage::StageNum++;
+		return new GameMain;
 	}
 	return this;
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include "CharaBase.h"
 #include "ItemBase.h"
+#include "Image.h"
 
 #define _MAX_BULLETE_  30
 

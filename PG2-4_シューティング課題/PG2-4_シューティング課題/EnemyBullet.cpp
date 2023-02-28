@@ -8,7 +8,7 @@ EnemyBullet::EnemyBullet(T_Location location)
 
 void EnemyBullet::Update() {
 	T_Location Location = GetLocation();
-	Location.y += speed.y;
+	Location.x -= speed.x;
 	SetLocation(Location);
 }
 

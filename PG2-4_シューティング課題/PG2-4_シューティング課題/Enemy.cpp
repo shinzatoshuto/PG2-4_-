@@ -4,42 +4,43 @@
 #include <math.h>
 #include "CircleEnemyBullet.h"
 
-#define Attacking_Interval 10
+#define Attacking_Interval 20
+int Enemy::AcType;
 
-void Enemy::inputCSV()
-{
-	FILE* fp;    //FILE型構造体
-	errno_t error;
-	error = fopen_s(&fp, "Data/Enemy.csv", "r");
-
-	if (error != 0)
-	{
-		//ファイルが開けてない
-		return;
-	}
-	else
-	{
-		//ファイルが開けた
-		char line[100];
-		for (int i = 0; fgets(line, 100, fp) != NULL; i++) {
-			sscanf_s(line, "%d, %f, %f, %d, %d, %d", 
-				&moveInfo[i].pattern,
-				&moveInfo[i].destination.x,
-				&moveInfo[i].destination.y,
-				&moveInfo[i].nextArrayNum,
-				&moveInfo[i].waitFrameTime,
-				&moveInfo[i].attackType
-			);
-		}
-		return;
-	}
-
-	fclose(fp);  //ファイルを閉じる
-}
+//void Enemy::inputCSV()
+//{
+//	FILE* fp;    //FILE型構造体
+//	errno_t error;
+//	error = fopen_s(&fp, "Data/Enemy.csv", "r");
+//
+//	if (error != 0)
+//	{
+//		//ファイルが開けてない
+//		return;
+//	}
+//	else
+//	{
+//		//ファイルが開けた
+//		char line[100];
+//		for (int i = 0; fgets(line, 100, fp) != NULL; i++) {
+//			sscanf_s(line, "%d, %f, %f, %d, %d, %d", 
+//				&moveInfo[i].pattern,
+//				&moveInfo[i].destination.x,
+//				&moveInfo[i].destination.y,
+//				&moveInfo[i].nextArrayNum,
+//				&moveInfo[i].waitFrameTime,
+//				&moveInfo[i].attackType
+//			);
+//		}
+//		return;
+//	}
+//
+//	fclose(fp);  //ファイルを閉じる
+//}
 
 Enemy::Enemy(T_Location location, float rudius)
 	:SphereCollider(location, rudius) {
-	inputCSV();
+	//inputCSV();
 
 	hp = 10;
 	point = 10;
@@ -47,6 +48,7 @@ Enemy::Enemy(T_Location location, float rudius)
 	interval = 0;
 	Move = 0;
 	shotNum = 0;
+	AcType = 0;
 
 	CharaSpeed = T_Location{ 3.0,3.0 };
 
@@ -75,11 +77,11 @@ void Enemy::Update() {
 	}*/
 
 	//EnemyMove(GetPlayerY, GetPlayerX);
-	shotNum++;
-	bullets[BulletsCount] = new CircleEnemyBullet(GetLocation(), 3.f, (20 * shotNum));
+	/*shotNum++;
+	bullets[BulletsCount] = new CircleEnemyBullet(GetLocation(), 3.f, (20 * shotNum));*/
 	//bullets[BulletsCount] = new EnemyBullet(GetLocation());
 
-	if (moveInfo[current].attackType != 0) {
+	/*if (moveInfo[current].attackType != 0) {
 		interval++;
 		if (Attacking_Interval <= interval) {
 			if (BulletsCount < Bullets && bullets[BulletsCount] == nullptr) {
@@ -91,6 +93,20 @@ void Enemy::Update() {
 					shotNum++;
 					bullets[BulletsCount] = new CircleEnemyBullet(GetLocation(), 3.f, (20 * shotNum));
 				}
+			}
+		}
+	}*/
+
+	interval++;
+	if (Attacking_Interval <= interval) {
+		if (BulletsCount < Bullets && bullets[BulletsCount] == nullptr) {
+			interval = 0;
+			if (AcType == 1) {
+				bullets[BulletsCount] = new EnemyBullet(GetLocation());
+			}
+			else if (AcType == 2) {
+				shotNum++;
+				bullets[BulletsCount] = new CircleEnemyBullet(GetLocation(), 3.f, (20 * shotNum));
 			}
 		}
 	}

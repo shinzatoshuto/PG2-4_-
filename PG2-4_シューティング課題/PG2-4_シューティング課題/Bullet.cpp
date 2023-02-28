@@ -7,7 +7,7 @@ int Bullet::y;
 int Bullet::bull[_MAX_BULLETE_];
 
 Bullet::Bullet(T_Location location)
-	:BulletBase(location, 5.0f,1, T_Location{ 30,30 }) {
+	:BulletBase(location, 5.0f,1, T_Location{ 10,10 }) {
 	image = 0;
 	x = 0;
 	y = 0;
@@ -15,23 +15,7 @@ Bullet::Bullet(T_Location location)
 
 void Bullet::Update() {
 	T_Location Location = GetLocation();
-	for (int i = 0; i < _MAX_BULLETE_; i++) {
-		switch (bull[i]) {
-		case 1:
-			Location.y -= speed.y;
-			break;
-		case 2:
-			Location.y += speed.y;
-			break;
-		case 3:
-			Location.x -= speed.x;
-			break;
-		case 4:
-			Location.x += speed.x;
-			break;
-		}
-	}
-
+	Location.x += speed.x;
 	SetLocation(Location);
 }
 

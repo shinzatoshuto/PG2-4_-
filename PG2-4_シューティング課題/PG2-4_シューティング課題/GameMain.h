@@ -4,6 +4,7 @@
 #include "Enemy.h"
 #include "ItemBase.h"
 #include "Stage.h"
+#include "Image.h"
 
 class GameMain: public AbstractScene , public Stage {
 	Player* player;
@@ -15,6 +16,7 @@ class GameMain: public AbstractScene , public Stage {
 public:
 	GameMain()
 	{
+		Image::DrawImage();
 		T_Location location;
 		location.x = 10;
 		location.y = 100;

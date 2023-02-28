@@ -161,6 +161,7 @@
     <ClCompile Include="shooter.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SphereCollider.cpp" />
+    <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Title.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +183,7 @@
     <ClInclude Include="shooter.h" />
     <ClInclude Include="AbstractScene.h" />
     <ClInclude Include="SphereCollider.h" />
+    <ClInclude Include="Stage.h" />
     <ClInclude Include="Title.h" />
   </ItemGroup>
   <ItemGroup>

@@ -105,6 +105,9 @@
     <ClCompile Include="Key.cpp">
       <Filter>ソース ファイル\Player</Filter>
     </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>ソース ファイル\Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractScene.h">
@@ -163,6 +166,9 @@
     </ClInclude>
     <ClInclude Include="Key.h">
       <Filter>ヘッダー ファイル\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>ヘッダー ファイル\Main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
